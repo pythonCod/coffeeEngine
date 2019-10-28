@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Coffee">
+      <UniqueIdentifier>{CDF43AAC-B996-6582-A251-79D68E92ECD2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Coffee.h" />
+    <ClInclude Include="src\Coffee\Application.h">
+      <Filter>Coffee</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coffee\Entrypoint.h">
+      <Filter>Coffee</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coffee\Log.h">
+      <Filter>Coffee</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coffee\core.h">
+      <Filter>Coffee</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Coffee\Application.cpp">
+      <Filter>Coffee</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Coffee\Log.cpp">
+      <Filter>Coffee</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
