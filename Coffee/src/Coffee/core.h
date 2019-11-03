@@ -10,3 +10,4 @@
 		
 #endif // COF_PLATFORM_WINDOW
 
+#define BIT(x) (1 << x)

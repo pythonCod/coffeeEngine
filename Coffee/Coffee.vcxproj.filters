@@ -4,6 +4,9 @@
     <Filter Include="Coffee">
       <UniqueIdentifier>{CDF43AAC-B996-6582-A251-79D68E92ECD2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Coffee\Events">
+      <UniqueIdentifier>{11980D22-7D58-8958-4693-D2D5B212CE34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Coffee.h" />
@@ -13,12 +16,25 @@
     <ClInclude Include="src\Coffee\Entrypoint.h">
       <Filter>Coffee</Filter>
     </ClInclude>
+    <ClInclude Include="src\Coffee\Events\ApplicationEvent.h">
+      <Filter>Coffee\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coffee\Events\Event.h">
+      <Filter>Coffee\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coffee\Events\KeyEvent.h">
+      <Filter>Coffee\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Coffee\Events\MouseEvent.h">
+      <Filter>Coffee\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Coffee\Log.h">
       <Filter>Coffee</Filter>
     </ClInclude>
     <ClInclude Include="src\Coffee\core.h">
       <Filter>Coffee</Filter>
     </ClInclude>
+    <ClInclude Include="src\copch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Coffee\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Coffee\Log.cpp">
       <Filter>Coffee</Filter>
     </ClCompile>
+    <ClCompile Include="src\copch.cpp" />
   </ItemGroup>
 </Project>

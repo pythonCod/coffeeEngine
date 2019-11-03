@@ -18,13 +18,16 @@ project "Coffee"
 	targetdir ("bin/" ..outputdir .. "/%{prj.name}")
 	objdir	  ("bin-int/" ..outputdir .. "/%{prj.name}")  
 
+	pchheader "copch.h"
+	pchsource "Coffe/src/copch.cpp"
+
 	files{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
 
 	includedirs{
-		"{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include"
 	}
 
 	filter "system.windows"
@@ -37,24 +40,52 @@ project "Coffee"
 			"COF_BUILD_DLL"
 		}
 
-		postbuildcommands{
-			("{copy} %{cfg.buildtarget.relpath} ../bin" .. outputdir .. "/Sandbox") 
+		postbuildcommands {
+			"{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"
 		}
+
 	filter "configurations:Debug"
-		defines "COF_DEBUG"
+		defines{
+			"COF_PLATFORM_WINDOW",
+			"COF_BUILD_DLL",
+			 "COF_DEBUG"
+		}
 		symbols "On"
+
+		postbuildcommands {
+			"{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"
+		}
+
 
 	filter "configurations:Release"
-		defines "COF_RELEASE"
+		defines{
+			"COF_PLATFORM_WINDOW",
+			"COF_BUILD_DLL",
+			 "COF_DEBUG"
+		}
 		optimize "On"
 
+		postbuildcommands {
+			"{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"
+		}
+
+
 	filter "configurations:dist"
-		defines "COF_DIST"
-		symbols "On"
+		defines{
+			"COF_PLATFORM_WINDOW",
+			"COF_BUILD_DLL",
+			 "COF_DEBUG"
+		}
+		optimize "On"
+
+		postbuildcommands {
+			"{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"
+		}
+
 
 project "Sandbox"
 
-	location "sandbox"
+	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 	targetdir ("bin/" ..outputdir .. "/%{prj.name}")
@@ -66,7 +97,7 @@ project "Sandbox"
 	}
 
 	includedirs{
-		"{prj.name}/vendor/spdlog/include",
+		"Coffee/vendor/spdlog/include",
 		"Coffee/src"
 	}
 
@@ -84,13 +115,22 @@ project "Sandbox"
 		}
 
 	filter "configurations:debug"
-		defines "COF_DEBUG"
+		defines{
+			"COF_PLATFORM_WINDOW",
+			 "COF_DEBUG"
+		}
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "COF_RELEASE"
+		defines{
+			"COF_PLATFORM_WINDOW",
+			 "COF_DEBUG"
+		}
 		optimize "On"
 
-	filter "configurations:dist"
-		defines "COF_DIST"
-		symbols "On"
+	filter "configurations:Dist"
+		defines{
+			"COF_PLATFORM_WINDOW",
+			 "COF_DEBUG"
+		}
+		optimize "On"
